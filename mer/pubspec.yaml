@@ -1,0 +1,27 @@
+name: mer
+description: Your project description
+
+publish_to: 'none' # Remove this line if you want to publish the app
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.19.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  url_launcher: ^6.0.12
+  google_fonts: ^6.2.1
+  # Add other dependencies here
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+
+  # Declare the assets section to include the dice images
+  assets:
+    - assets/images/
