@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:google_fonts/google_fonts.dart';
 
-class ForeverAlonePage extends StatefulWidget {
+class SexOnFirePage extends StatefulWidget {
   @override
-  _ForeverAlonePageState createState() => _ForeverAlonePageState();
+  _SexOnFirePageState createState() => _SexOnFirePageState();
 }
 
-class _ForeverAlonePageState extends State<ForeverAlonePage> {
+class _SexOnFirePageState extends State<SexOnFirePage> {
   List<String> leftColumnTexts = [];
   List<String> rightColumnTexts = [];
 
@@ -18,7 +18,7 @@ class _ForeverAlonePageState extends State<ForeverAlonePage> {
   }
 
   Future<void> _loadTexts() async {
-    final String fileContent = await rootBundle.loadString('assets/sanger/foreveralone.txt');
+    final String fileContent = await rootBundle.loadString('assets/sanger/sexonfire.txt');
     final List<String> lines = fileContent.split('\n');
 
     setState(() {
@@ -37,7 +37,7 @@ class _ForeverAlonePageState extends State<ForeverAlonePage> {
     return Scaffold(
       backgroundColor: Colors.red, // Red background
       appBar: AppBar(
-        title: Text('Forever Alone'),
+        title: Text('Sex On Fire'),
         backgroundColor: Colors.transparent, // Transparent app bar
         elevation: 0, // Remove shadow for app bar
         centerTitle: true, // Center the title
@@ -52,7 +52,7 @@ class _ForeverAlonePageState extends State<ForeverAlonePage> {
               child: Column(
                 children: [
                   Text(
-                    'Forever Alone',
+                    'Sex On Fire',
                     style: GoogleFonts.anton(
                       fontSize: 40, // Larger font size
                       fontWeight: FontWeight.bold,
@@ -67,7 +67,7 @@ class _ForeverAlonePageState extends State<ForeverAlonePage> {
                     ),
                   ),
                   Text(
-                    'av Kakkmaddafakka',
+                    'av Kings of Leon',
                     style: GoogleFonts.anton(
                       fontSize: 20, // Smaller font size
                       fontWeight: FontWeight.bold,

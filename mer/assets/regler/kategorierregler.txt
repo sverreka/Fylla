@@ -1,0 +1,11 @@
+Regler:
+
+Del dere inn i 2 lag.
+Når spillet starter vil dere bli presentert en kategori.
+Hvert lag nominerer en person som dere mener kan mye om den kategorien.
+På tur skal de nominerte by antall svar dei tror dei greier innanfor kategorien i løpet av 30 sekund.
+Når den ene personen ikke vil by høyere sier den "Bullshit".
+Deretter starter en person en timer på 30 sekund.
+Dersom personen som vant budet greier å ramse opp antall svar som budet han ga, kan han dele ut antall slurker som budet til det andre laget.
+Om han ikke greier å ramse opp nokk svar må han drikke slurkene selv.
+Deretter går man til neste kategori.
