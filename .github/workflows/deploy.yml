@@ -22,7 +22,9 @@ jobs:
       run: cd mer
 
     - name: Install dependencies
-      run: flutter pub get
+      run: |
+        flutter pub get
+        flutter upgrade
       working-directory: mer
 
     - name: Build Flutter web
