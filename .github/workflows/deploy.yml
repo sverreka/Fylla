@@ -32,6 +32,7 @@ jobs:
 
     - name: Install dependencies
       run: flutter pub get
+      run: flutter upgrade
       working-directory: mer
 
     - name: Build Flutter web
