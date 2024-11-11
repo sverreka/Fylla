@@ -18,6 +18,9 @@ jobs:
       with:
         flutter-version: '3.0.0'  # Specify your Flutter version
 
+    - name: change directory
+      run: cd mer
+
     - name: Install dependencies
       run: flutter pub get
 
