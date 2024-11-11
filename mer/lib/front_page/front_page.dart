@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart'; // Import google_fonts package
-import 'package:mer/studenten.dart';
+import 'package:mer/studenten/studenten.dart';
 import 'package:url_launcher/url_launcher.dart'; // Import url_launcher package
-import 'question_page.dart';
-import 'add_users_page.dart';
-import 'user_manager.dart';
-import 'dice_game_page.dart';
-import 'music_page.dart'; // Import MusicPage for navigation
+import 'package:flutter/material.dart'; 
+import '../user_manager/user_manager.dart'; 
+import '../user_manager/add_users_page.dart';
+import '../101sporsmal/question_page.dart'; 
+import '../terning/dice_game_page.dart'; 
+import '../musikk/music_page.dart'; 
+import '../studenten/studenten.dart';
 
 class FrontPage extends StatelessWidget {
   final UserManager userManager;

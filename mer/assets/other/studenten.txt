@@ -1,0 +1,115 @@
+Jeg har aldri strøket på en eksamen.
+Jeg har aldri glemt navnet på et one-night-stand.
+{user1} vis din nettleserhistorikk eller drikk 5 slurker.
+{user1} vipps 50kr til 47711007 eller drikk 10 slurker.
+Jeg har aldri fått et nei til å bli ja.
+Kategorien er ølmerker. {user1} starter.
+{user1} og {user2} er nå drink buddies.
+Jeg har aldri hatt meg med noen med 5 år i aldersforskjell.
+Alle som drikker vin idag må ta 3 slurker.
+Alle som drikker øl idag må ta 3 slurker.
+Den som styrer musikken kan dele ut 7 slurker.
+Jeg har aldri onanert på jobb
+{user1} velg 2 personer i rommet du ville hatt med på trekant eller drikk 3 slurker.
+Hot seat! alle still et spørsmål til {user1}. For alle spørsmålene {user1} nekter å svare på må {user1} drikke 1 slurk. 
+{user1} og {user2} Still dere rygg mot rygg. Den som har boksen stiller dere 3 spørsmål. Om du mener det er deg drikker du. Om dere er enige drikker resten. Om dere er uenige drikker dere.
+Hot seat! alle still et spørsmål til {user1}. For alle spørsmålene {user1} nekter å svare på må {user1} drikke 1 slurk. 
+Kategorien er kosmetikkmerker. {user1} starter.
+Kategorien er Fotballag i Premier League. {user1} starter.
+{user1} ta et selfie med gjengen å post på instagram story med teksten JEG SKAL KNULLE! eller drikk 5 slurker.
+{user1} velg 2 personer som skal kysse. om en eller begge nekter må dei drikke 5 slurker.
+2 sannheter, 1 løgn. {user1} kom på 2 sannheter og 1 løgn. Resten av gruppen skal gjette hvilken påstand som er løgn. Om gruppen tipper riktig må du drikke 5 slurker, om dei tipper feil må resten drikke 3 slurker. 
+Jeg har aldri løyet for sex.
+Jeg har aldri tæsjet noe fra en butikk.
+Jeg har aldri dratt tideleg hjem fra fest for sex.
+Hot seat! alle still et spørsmål til {user1}. For alle spørsmålene {user1} nekter å svare på må {user1} drikke 1 slurk. 
+Kategorien er etternavn på personer i rommet. {user1} starter.
+{user1} og {user2} kom på hver sin sexstilling. Resten av gruppen stemmer på den beste stillingen. Taperen drikker 5 slurker
+{user1} tenk på den kåteste i dette rommet. Resten av gruppen skal tippe på tur hvem du tenker på. Vinneren kan dele ut 9 slurker. {user2} begynner
+Jeg har aldri hatt meg med noen i dette rommet.
+Jeg har aldri tapt mer enn 10.000kr på gambling.
+Kategorien er land i Europa. {user1} starter.
+{user1} og {user2} kom på hver sin pickup line. Resten av gruppen stemmer på den beste pickup linen. Taperen drikker 5 slurker
+Jeg har aldri stjelt penger fra en forelders lommebok.
+Jeg har aldri tatt piercing.
+{user1} og {user2} ha stirrekonkurranse. Taperen drikker 10 slurker.
+SKÅL FOR FAEN!
+Jeg har aldri sovnet under sex
+Hot seat! alle still et spørsmål til {user1}. For alle spørsmålene {user1} nekter å svare på må {user1} drikke 1 slurk. 
+Pekelek! Hvem har høyest promille?
+Pekelek! Hvem har best drag på det motsatte kjønn?
+Pekelek! Hvem skal ta 10 slurker nå?
+Pekelek! Hvem har størst lommebok?
+Pekelek! Hvem har høyest bodycount?
+Pekelek! Hvem er keen på noen andre i dette rommet?
+Karaoke! Velg et objekt som dere setter i midten på bordet. Den som styrer musikk tar på en tilfeldig sang dei fleste kan. Førstemann som tar objektet å synger sangen kan dele ut 10 slurker. 
+Konkurranse! Alle sammen finn fram mobilen og vipps et beløp til 2277 (kreftforeningen). Om du nekter å vippse drikker du 10 slurker. Den som vippser mest kan dele ut 10 slurker. 
+{user1} gi {user2} et kompliment, ellers må du drikke 3 slurker.
+Alle som har Tinder på mobilen må ta 2 slurker.
+Kategorien er bilmerker. {user1} starter.
+{user1}, fortell din pinligste fyllehistorie, eller drikk 5 slurker.', requiresUsers: true
+Alle som har tatt solarium i det siste må drikke 3 slurker.
+Jeg har aldri blitt tatt av politiet.
+{user1} og {user2}, ha en armheving konkurranse. Taperen drikker 5 slurker.
+Hvem har reist til flest land? Den personen deler ut 5 slurker.
+{user1}, ring din ex og si jeg tenker på deg, eller drikk 7 slurker.
+Kategorien er spillkonsoller. {user1} starter.
+Alle som har en tatovering må ta 3 slurker.
+{user1} og {user2} ha en tommelkrig. Taperen drikker 4 slurker.
+{user1} mim deg selv ut en kjent sang. Første som gjetter riktig deler ut 5 slurker.
+Den som sist brukte badet drikker 3 slurker.
+{user1}, les siste tekstmeldingen din høyt eller drikk 5 slurker.
+Alle med Spotify må dele sin mest spilte sang i år, eller ta 2 slurker.
+{user1} og {user2}, første til å finne noe rødt og ta på det kan dele ut 5 slurker.
+Kategorien er populære filmer. {user1} starter.
+Alle som møtte opp tidelig til vorset, ta 2 slurker.
+{user1} velg en person i rommet til å tømme sin drikk.
+Den som har flest sosiale medier på mobilen må drikke 4 slurker.
+Kategorien er dyreriket. {user1} starter.
+Den som sov lengst i dag må drikke 3 slurker.
+{user1}, syng refrenget på en sang du kan utenat, ellers drikk 3 slurker.
+{user1} og {user2}, første til å finne en selfie på mobilen og vise gruppen, vinner. Taper drikker 5 slurker.
+Alle som har en Apple-enhet må ta 2 slurker.
+{user1}, hva var det siste du søkte på internett? Del det eller drikk 5 slurker.
+Kategorien er TV-serier. {user1} starter.
+Den som har flest meldinger på telefonen må drikke 4 slurker.
+{user1} si noe hyggelig om {user2}. Hvis du ikke kan, drikk 5 slurker.
+Alle med blå klær tar 2 slurker.
+Kategorien er klesmerker. {user1} starter.
+Alle som har hatt et forhold lengre enn ett år må ta 3 slurker.
+{user1}, hvem i rommet er mest sannsynlig til å bli kjendis? Den personen drikker 5 slurker.
+{user1} og {user2}, spill stein, saks, papir. Taperen drikker 3 slurker.
+Alle som har en bestevenn må drikke 2 slurker.
+Den som sist sjekket sosiale medier må ta 2 slurker.
+{user1} gi en person en challenge. Hvis de nekter, drikk 5 slurker.
+Kategorien er norske byer. {user1} starter.
+Den som oftest lager mat hjemme drikker 3 slurker.
+Kategorien er sportsutstyr. {user1} starter.
+{user1}, hva er det mest ulovlige du har gjort? Del det eller drikk 5 slurker.
+Alle som har en kjæledyr må ta 3 slurker.
+Kategorien er typer alkohol. {user1} starter.
+Den som har mest kontanter med seg må ta 2 slurker.
+{user1}, skriv en melding til en tilfeldig kontakt og la de andre velge hva du skriver eller drikk 5 slurker.
+Den som sist brukte pengene sine, drikk 3 slurker.
+{user1} og {user2}, spill en runde med håndbak. Taper drikker 5 slurker.
+Alle som er født i desember må drikke 3 slurker.
+Kategorien er julefilmer. {user1} starter.
+Den som har flest par sko, ta 2 slurker.
+{user1}, del din største flause på sosiale medier eller drikk 5 slurker.
+Alle med en tatovering drikker 2 slurker.
+Kategorien er pornostjerner. {user1} starter.
+{user1} og {user2}, ha en mimekonkurranse der gruppen gjetter. Taper drikker 3 slurker.
+Den som har flest følgere på Instagram, ta 3 slurker.
+Alle som har drukket alkohol alene må drikke 3 slurker.
+Kategorien er navn på norske artister. {user1} starter.
+Den som har flest apps på mobilen må ta 3 slurker.
+{user1} og {user2} ha en løgndetektor-runde hvor resten gjetter sannhet eller løgn. Taper drikker 3 slurker.
+Alle som kan svømme, ta 1 slurk.
+Den som kom sist i dag, drikk 3 slurker.
+{user1} si en ting du angrer på, eller drikk 5 slurker.
+Kategorien er ferieland. {user1} starter.
+{user1} og {user2} stå på ett bein og konkurrer. Taper drikker 5 slurker.
+Den som har flest år på høyere utdanning må drikke 2 slurker.
+{user1} fortell om det flaueste som har hendt under samleie eller drikk 5 slurker
+{user1} fortell om et flaut barndomsminne som har brent seg fast i hjernen din eller drikk 5 slurker.
+    

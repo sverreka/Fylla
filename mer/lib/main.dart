@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
-import 'front_page.dart';
-import 'user_manager.dart';
+import 'package:flutter/material.dart'; 
+import 'user_manager/user_manager.dart'; 
+import 'front_page/front_page.dart';
 
 void main() {
   runApp(MyApp());
