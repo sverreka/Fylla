@@ -6,15 +6,14 @@ publish_to: 'none' # Remove this line if you want to publish the app
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.17.0 <3.0.0"
+  sdk: ">=2.19.0 <3.0.0"  # Updated SDK version
 
 dependencies:
   flutter:
     sdk: flutter
   url_launcher: ^6.0.12
-  google_fonts: ^5.0.0  # Downgraded version
+  google_fonts: ^5.0.0  # Ensure this version is compatible with the SDK
   # Add other dependencies here
-  
 
 dev_dependencies:
   flutter_test:
