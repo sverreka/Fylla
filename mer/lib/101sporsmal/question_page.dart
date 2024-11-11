@@ -32,6 +32,9 @@ class _QuestionPageState extends State<QuestionPage> {
     setState(() {
       questions = LineSplitter().convert(response);
       questions.shuffle();
+      if (questions.length > 101) {
+        questions = questions.sublist(0, 101);  // Limit to the first 101 questions
+      }
     });
   }
 

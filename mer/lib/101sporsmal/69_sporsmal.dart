@@ -32,6 +32,9 @@ class _DirtyPageState extends State<DirtyPage> {
     setState(() {
       questions = LineSplitter().convert(response);
       questions.shuffle();
+      if (questions.length > 69) {
+        questions = questions.sublist(0, 69);  // Limit to the first 69 questions
+      }
     });
   }
 
