@@ -18,14 +18,16 @@ jobs:
       with:
         flutter-version: '3.0.0'  # Specify your Flutter version
 
-    - name: change directory
+    - name: Change to Flutter project directory
       run: cd mer
 
     - name: Install dependencies
       run: flutter pub get
+      working-directory: mer
 
     - name: Build Flutter web
       run: flutter build web
+      working-directory: mer
 
     - name: Deploy to SFTP server
       uses: appleboy/scp-action@v0.1.0
@@ -34,5 +36,5 @@ jobs:
         username: ${{ secrets.SFTP_USERNAME }}
         password: ${{ secrets.SFTP_PASSWORD }}
         port: 22  # Default SFTP port
-        source: "build/web/*"
+        source: "mer/build/web/*"
         target: "/r1330880/to/your/webapp/drikkeleker/"
