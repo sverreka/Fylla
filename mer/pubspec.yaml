@@ -12,8 +12,9 @@ dependencies:
   flutter:
     sdk: flutter
   url_launcher: ^6.0.12
-  google_fonts: ^6.2.1
+  google_fonts: ^5.0.0  # Downgraded version
   # Add other dependencies here
+  
 
 dev_dependencies:
   flutter_test:
