@@ -13,19 +13,15 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
+    - name: Set up Dart
+      uses: dart-lang/setup-dart@v1
+      with:
+        sdk: '2.19.0'  # Specify the Dart SDK version
+
     - name: Set up Flutter
       uses: subosito/flutter-action@v2
       with:
         flutter-version: '3.0.0'  # Specify your Flutter version
-
-    - name: Install Dart SDK
-      run: |
-        sudo apt-get update
-        sudo apt-get install apt-transport-https
-        sudo sh -c 'wget -qO- https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -'
-        sudo sh -c 'wget -qO- https://storage.googleapis.com/download.dartlang.org/linux/debian/dart_stable.list > /etc/apt/sources.list.d/dart_stable.list'
-        sudo apt-get update
-        sudo apt-get install dart=2.19.0-1
 
     - name: Change to Flutter project directory
       run: cd mer
