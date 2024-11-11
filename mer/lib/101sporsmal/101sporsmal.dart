@@ -28,7 +28,7 @@ class SporsmalFrontPage extends StatelessWidget {
               child: Text(
                 'Snusboksen!',
                 style: GoogleFonts.anton( // Using Anton font from Google Fonts
-                  fontSize: 80, // Larger font size
+                  fontSize: 60, // Larger font size
                   fontWeight: FontWeight.bold,
                   color: Colors.orange, // Text color orange
                   shadows: [
