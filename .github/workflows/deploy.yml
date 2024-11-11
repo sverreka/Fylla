@@ -24,11 +24,12 @@ jobs:
     - name: Build Flutter web
       run: flutter build web
 
-    - name: Deploy to FTP server
-      uses: SamKirkland/FTP-Deploy-Action@4.1.0
+    - name: Deploy to SFTP server
+      uses: appleboy/scp-action@v0.1.0
       with:
-        ftp-server: ssh.c4bo5cold.service.one
-        ftp-username: ${{ secrets.FTP_USERNAME }}
-        ftp-password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: build/web
-        server-dir: /r1330880/to/your/webapp/drikkeleker/
+        host: ${{ secrets.SFTP_HOST }}
+        username: ${{ secrets.SFTP_USERNAME }}
+        password: ${{ secrets.SFTP_PASSWORD }}
+        port: 22  # Default SFTP port
+        source: "build/web/*"
+        target: "/r1330880/to/your/webapp/drikkeleker/"
