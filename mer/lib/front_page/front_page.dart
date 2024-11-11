@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart'; // Import google_fonts package
+import 'package:mer/101sporsmal/101sporsmal.dart';
 import 'package:mer/studenten/studenten.dart';
 import 'package:url_launcher/url_launcher.dart'; // Import url_launcher package
 import 'package:flutter/material.dart'; 
@@ -63,12 +64,12 @@ class FrontPage extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => QuestionPage(userManager: userManager),
+                      builder: (context) => SporsmalFrontPage(userManager: userManager),
                     ),
                   );
                 },
                 child: Text(
-                  '101 Spørsmål',
+                  'Snusboksen',
                   style: TextStyle(
                     fontSize: 18, // Larger text for the button
                     fontWeight: FontWeight.bold, // Bold text
