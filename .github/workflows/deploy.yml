@@ -1,0 +1,51 @@
+name: Deploy Flutter Web App
+
+on:
+  push:
+    branches:
+      - main  # Change this to your default branch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Dart SDK
+      run: |
+        sudo apt-get update
+        sudo apt-get install apt-transport-https
+        sudo sh -c 'wget -qO- https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -'
+        sudo sh -c 'wget -qO- https://storage.googleapis.com/download.dartlang.org/linux/debian/dart_stable.list > /etc/apt/sources.list.d/dart_stable.list'
+        sudo apt-get update
+        sudo apt-get install dart=2.19.0-1
+
+    - name: Set up Flutter
+      uses: subosito/flutter-action@v2
+      with:
+        flutter-version: '3.0.0'  # Specify your Flutter version
+
+    - name: Change to Flutter project directory
+      run: cd mer
+
+    - name: Install dependencies
+      run: |
+        flutter pub get
+        flutter upgrade
+      working-directory: mer
+
+    - name: Build Flutter web
+      run: flutter build web
+      working-directory: mer
+
+    - name: Deploy to SFTP server
+      uses: appleboy/scp-action@v0.1.0
+      with:
+        host: ${{ secrets.SFTP_HOST }}
+        username: ${{ secrets.SFTP_USERNAME }}
+        password: ${{ secrets.SFTP_PASSWORD }}
+        port: 22  # Default SFTP port
+        source: "mer/build/web/*"
+        target: "/r1330880/to/your/webapp/drikkeleker/"
