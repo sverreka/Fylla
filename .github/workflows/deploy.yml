@@ -39,13 +39,11 @@ jobs:
       run: flutter build web
       working-directory: mer
 
-    - name: Deploy to SFTP server
-      uses: appleboy/ssh-action@v0.1.0
+    - name: Deploy to FTP server
+      uses: SamKirkland/FTP-Deploy-Action@4.3.0
       with:
-        host: ${{ secrets.SFTP_HOST }}
+        server: ${{ secrets.SFTP_HOST }}
         username: ${{ secrets.SFTP_USERNAME }}
         password: ${{ secrets.SFTP_PASSWORD }}
-        port: 22  # Default SSH port
-        script: |
-          mkdir -p /r1330880/to/your/webapp/drikkeleker/
-          scp -r mer/build/web/* ${{ secrets.SFTP_USERNAME }}@${{ secrets.SFTP_HOST }}:/r1330880/to/your/webapp/drikkeleker/
+        local-dir: "mer/build/web"
+        server-dir: "/r1330880/to/your/webapp/drikkeleker/"
