@@ -3,7 +3,6 @@ import 'package:google_fonts/google_fonts.dart'; // Import google_fonts package
 import 'package:mer/101sporsmal/101sporsmal.dart';
 import 'package:mer/studenten/studenten.dart';
 import '../user_manager/user_manager.dart'; 
-import '../user_manager/add_users_page.dart';
 import '../terning/dice_game_page.dart'; 
 import '../musikk/music_page.dart'; 
 import '../regler/rules_page.dart'; 
@@ -96,7 +95,7 @@ class FrontPage extends StatelessWidget {
                     );
                   },
                   child: Text(
-                    'Studenten',
+                    'Bender',
                     style: GoogleFonts.anton( // Using Anton font from Google Fonts
                     fontSize: 30, // Larger font size
                     fontWeight: FontWeight.bold,

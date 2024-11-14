@@ -23,3 +23,8 @@ Kategorien er det verste som kan skje under en date!
 Kategorien er plasser å ta med en date!
 Kategorien er upassende plasser å poppe en pils!
 Kategorien er universitet/høyskoler i Norge!
+Kategorien er kjønnssykdommer!
+Kategorien er prevensjonsmiddel!
+Kategorien er sprit produsenter!
+Kategorien er grunner til å besøke helsesøster!
+Kategorien er russelåter!

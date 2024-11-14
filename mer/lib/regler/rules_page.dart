@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart' show rootBundle;
+import 'dart:convert';
+import 'package:google_fonts/google_fonts.dart';
 import 'rules_display_page.dart'; // Import the RulesDisplayPage
 
 class RulesPage extends StatelessWidget {
@@ -12,184 +15,105 @@ class RulesPage extends StatelessWidget {
         elevation: 0, // Remove shadow for app bar
         centerTitle: true, // Center the title
       ),
-      body: Container(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            // Studenten Button
-            Center(
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.orange, // Button background color (orange)
-                  foregroundColor: Colors.white, // Button text color (white)
-                  padding: EdgeInsets.symmetric(vertical: 15, horizontal: 30), // Button padding
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12), // Rounded corners for button
-                  ),
-                  minimumSize: Size(250, 50), // Fixed size for buttons
-                ),
-                onPressed: () {
-                  // Navigate to RulesDisplayPage with the path to studentenregler.txt
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => RulesDisplayPage(
-                        title: 'Studenten Regler',
-                        filePath: 'assets/regler/studentenregler.txt',
-                      ),
-                    ),
-                  );
-                },
-                child: Text(
-                  'Studenten', // Button text
-                  style: TextStyle(
-                    fontSize: 18, // Button text size
-                    fontWeight: FontWeight.bold, // Bold text
-                  ),
-                ),
-              ),
-            ),
-            SizedBox(height: 20), // Space between buttons
+      body: SafeArea(
+        child: FutureBuilder(
+          future: _getRulesFiles(),
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return Center(child: CircularProgressIndicator());
+            } else if (snapshot.hasError) {
+              return Center(child: Text('Error: ${snapshot.error}'));
+            } else {
+              final files = snapshot.data as List<String>;
+              return Center(
+                child: ScrollConfiguration(
+                  behavior: ScrollBehavior().copyWith(overscroll: false, scrollbars: false),
+                  child: SingleChildScrollView(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          margin: EdgeInsets.only(bottom: 40), // Space between the text and buttons
+                          child: Text(
+                            'Regler',
+                            style: GoogleFonts.anton( // Using Anton font from Google Fonts
+                              fontSize: 80, // Larger font size
+                              fontWeight: FontWeight.bold,
+                              color: Colors.orange, // Text color orange
+                              shadows: [
+                                Shadow(
+                                  offset: Offset(0, 0), // No offset for solid outline
+                                  blurRadius: 0, // No blur for solid outline
+                                  color: Colors.white, // Solid white outline
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        ...files.map((filePath) {
+                          final fileName = filePath.split('/').last;
+                          final title = StringExtension(fileName.replaceAll('.txt', '').replaceAll('_', ' ')).capitalize();
 
-            // Musikk Button
-            Center(
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.orange, // Button background color (orange)
-                  foregroundColor: Colors.white, // Button text color (white)
-                  padding: EdgeInsets.symmetric(vertical: 15, horizontal: 30), // Button padding
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12), // Rounded corners for button
-                  ),
-                  minimumSize: Size(250, 50), // Fixed size for buttons
-                ),
-                onPressed: () {
-                  // Navigate to RulesDisplayPage with the path to musikkregler.txt
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => RulesDisplayPage(
-                        title: 'Musikk Regler',
-                        filePath: 'assets/regler/musikkregler.txt',
-                      ),
+                          return Column(
+                            children: [
+                              ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: Colors.orange, // Button background color (orange)
+                                  foregroundColor: Colors.white, // Button text color (white)
+                                  padding: EdgeInsets.symmetric(vertical: 15, horizontal: 30), // Button padding
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(12), // Rounded corners for button
+                                  ),
+                                  minimumSize: Size(250, 50), // Fixed size for buttons
+                                ),
+                                onPressed: () {
+                                  // Navigate to RulesDisplayPage with the path to the file
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => RulesDisplayPage(
+                                        title: title,
+                                        filePath: filePath,
+                                      ),
+                                    ),
+                                  );
+                                },
+                                child: Text(
+                                  title, // Button text
+                                  style: TextStyle(
+                                    fontSize: 18, // Button text size
+                                    fontWeight: FontWeight.bold, // Bold text
+                                  ),
+                                ),
+                              ),
+                              SizedBox(height: 20), // Space between buttons
+                            ],
+                          );
+                        }).toList(),
+                      ],
                     ),
-                  );
-                },
-                child: Text(
-                  'Musikk', // Button text
-                  style: TextStyle(
-                    fontSize: 18, // Button text size
-                    fontWeight: FontWeight.bold, // Bold text
                   ),
                 ),
-              ),
-            ),
-            SizedBox(height: 20),
-
-            Center(
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.orange, // Button background color (orange)
-                  foregroundColor: Colors.white, // Button text color (white)
-                  padding: EdgeInsets.symmetric(vertical: 15, horizontal: 30), // Button padding
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12), // Rounded corners for button
-                  ),
-                  minimumSize: Size(250, 50), // Fixed size for buttons
-                ),
-                onPressed: () {
-                  // Navigate to RulesDisplayPage with the path to studentenregler.txt
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => RulesDisplayPage(
-                        title: 'Snusboksen regler',
-                        filePath: 'assets/regler/snusboksen.txt',
-                      ),
-                    ),
-                  );
-                },
-                child: Text(
-                  'Snusboksen', // Button text
-                  style: TextStyle(
-                    fontSize: 18, // Button text size
-                    fontWeight: FontWeight.bold, // Bold text
-                  ),
-                ),
-              ),
-            ),
-            SizedBox(height: 20),
-
-            Center(
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.orange, // Button background color (orange)
-                  foregroundColor: Colors.white, // Button text color (white)
-                  padding: EdgeInsets.symmetric(vertical: 15, horizontal: 30), // Button padding
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12), // Rounded corners for button
-                  ),
-                  minimumSize: Size(250, 50), // Fixed size for buttons
-                ),
-                onPressed: () {
-                  // Navigate to RulesDisplayPage with the path to studentenregler.txt
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => RulesDisplayPage(
-                        title: 'Kategorier regler',
-                        filePath: 'assets/regler/kategorierregler.txt',
-                      ),
-                    ),
-                  );
-                },
-                child: Text(
-                  'Kategorier', // Button text
-                  style: TextStyle(
-                    fontSize: 18, // Button text size
-                    fontWeight: FontWeight.bold, // Bold text
-                  ),
-                ),
-              ),
-            ),
-            SizedBox(height: 20),
-
-            Center(
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.orange, // Button background color (orange)
-                  foregroundColor: Colors.white, // Button text color (white)
-                  padding: EdgeInsets.symmetric(vertical: 15, horizontal: 30), // Button padding
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12), // Rounded corners for button
-                  ),
-                  minimumSize: Size(250, 50), // Fixed size for buttons
-                ),
-                onPressed: () {
-                  // Navigate to RulesDisplayPage with the path to studentenregler.txt
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => RulesDisplayPage(
-                        title: 'Opus regler',
-                        filePath: 'assets/regler/opusregler.txt',
-                      ),
-                    ),
-                  );
-                },
-                child: Text(
-                  'Opus', // Button text
-                  style: TextStyle(
-                    fontSize: 18, // Button text size
-                    fontWeight: FontWeight.bold, // Bold text
-                  ),
-                ),
-              ),
-            ),
-            SizedBox(height: 20),
-          ],
+              );
+            }
+          },
         ),
       ),
     );
+  }
+
+  Future<List<String>> _getRulesFiles() async {
+    final manifestContent = await rootBundle.loadString('AssetManifest.json');
+    final Map<String, dynamic> manifestMap = json.decode(manifestContent);
+    final rulesFiles = manifestMap.keys
+        .where((String key) => key.contains('assets/regler/') && key.endsWith('.txt'))
+        .toList();
+    return rulesFiles;
+  }
+}
+
+extension StringExtension on String {
+  String capitalize() {
+    return "${this[0].toUpperCase()}${this.substring(1).toLowerCase()}";
   }
 }

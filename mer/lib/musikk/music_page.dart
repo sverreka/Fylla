@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'foreveralonepage.dart' as foreveralone; // Alias the ForeverAlonePage import
 import 'package:google_fonts/google_fonts.dart';
-import 'sexonfire.dart' as sexonfire; // Alias the SexOnFirePage import
+import 'sexonfire.dart' as sexonfire;
+import 'sweetcaroline.dart' as sweetcaroline; // Alias the SexOnFirePage import
 
 class MusicPage extends StatelessWidget {
   // URLs for your playlists (replace these with actual URLs)
@@ -129,6 +130,34 @@ class MusicPage extends StatelessWidget {
             ),
             SizedBox(height: 20), // Space between buttons
 
+            Center(
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.orange, // Button background color (orange)
+                  foregroundColor: Colors.white, // Button text color (white)
+                  padding: EdgeInsets.symmetric(vertical: 15, horizontal: 30), // Button padding
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12), // Rounded corners for button
+                  ),
+                  minimumSize: Size(250, 50), // Fixed size for buttons
+                ),
+                onPressed: () {
+                  // Navigate to Forever Alone page
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => sweetcaroline.SweetCaroline()),
+                  );
+                },
+                child: Text(
+                  'Sweet Caroline', // Button text
+                  style: TextStyle(
+                    fontSize: 18, // Button text size
+                    fontWeight: FontWeight.bold, // Bold text
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(height: 20),
             // Sex On Fire Button
             Center(
               child: ElevatedButton(

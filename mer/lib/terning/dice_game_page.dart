@@ -9,9 +9,9 @@ class DicePage extends StatefulWidget {
 
 class _DicePageState extends State<DicePage> with SingleTickerProviderStateMixin {
   late AnimationController _controller;
-  late Animation<double> _rotation;
+  late Animation _rotation;
 
-  final List<String> diceImages = [
+  final List diceImages = [
     'assets/images/dice_1.png',
     'assets/images/dice_2.png',
     'assets/images/dice_3.png',
@@ -21,6 +21,9 @@ class _DicePageState extends State<DicePage> with SingleTickerProviderStateMixin
   ];
 
   int _currentDiceFace = 0;
+  bool _isDiceRolling = false; // Flag to check if the dice roll is in progress
+  bool _rollToSixNext = false; // Flag to indicate if the next roll should be 6
+  bool _preventSix = false; // Flag to prevent rolling a 6
 
   // Spotify playlist URL
   final String spotifyPlaylistUrl = "https://open.spotify.com/playlist/7zNHkXHCC5O9cjxDQaSmMg?si=64fc336c5b9f4879"; // Replace with your actual Spotify playlist URL
@@ -36,21 +39,40 @@ class _DicePageState extends State<DicePage> with SingleTickerProviderStateMixin
     );
 
     // Create a rotation animation for 2D rotation
-    _rotation = Tween<double>(begin: 0, end: pi * 2).animate(
+    _rotation = Tween(begin: 0, end: pi * 2).animate(
       CurvedAnimation(parent: _controller, curve: Curves.easeInOut),
     );
 
     // Listen for animation updates to change the dice face
     _controller.addListener(() {
       setState(() {
-        _currentDiceFace = Random().nextInt(6); // Randomize the dice face
+        _currentDiceFace = Random().nextInt(6); // Randomize the dice face during animation
+        if (_preventSix && _currentDiceFace == 5) {
+          _currentDiceFace = Random().nextInt(5); // Ensure it's not 6
+        }
       });
+    });
+
+    // Listen for animation completion
+    _controller.addStatusListener((status) {
+      if (status == AnimationStatus.completed) {
+        _isDiceRolling = false; // Reset the flag when the animation completes
+        if (_rollToSixNext) {
+          setState(() {
+            _currentDiceFace = 5; // Set the dice face to 6 (index 5)
+            _rollToSixNext = false; // Reset the roll to six flag
+          });
+        }
+      }
     });
   }
 
   // Function to trigger the dice roll on tap
   void rollDice() {
-    _controller.forward(from: 0); // Reset and start the animation
+    if (!_isDiceRolling) {
+      _isDiceRolling = true; // Set the flag to indicate the dice roll is in progress
+      _controller.forward(from: 0); // Reset and start the animation
+    }
   }
 
   // Function to launch the Spotify URL
@@ -62,11 +84,15 @@ class _DicePageState extends State<DicePage> with SingleTickerProviderStateMixin
     }
   }
 
-  // Secret hidden function to roll a 6 directly
+  // Secret hidden function to set the flag for the next roll to be 6
   void rollSix() {
-    setState(() {
-      _currentDiceFace = 5; // Set the dice face to 6 (index 5)
-    });
+    _rollToSixNext = true; // Set the flag to roll to six on the next roll
+    _preventSix = false; // Allow rolling a 6 again
+  }
+
+  // Secret hidden function to prevent rolling a 6
+  void preventSix() {
+    _preventSix = true; // Set the flag to prevent rolling a 6
   }
 
   @override
@@ -118,7 +144,7 @@ class _DicePageState extends State<DicePage> with SingleTickerProviderStateMixin
           Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
+              children: [
                 // Dice animation using 2D rotation and GestureDetector to tap the dice
                 GestureDetector(
                   onTap: rollDice, // Trigger the rollDice function when the dice is tapped
@@ -146,7 +172,20 @@ class _DicePageState extends State<DicePage> with SingleTickerProviderStateMixin
             bottom: 20,
             right: 20,
             child: GestureDetector(
-              onTap: rollSix, // Roll a 6 when the secret area is tapped
+              onTap: rollSix, // Set the next roll to be 6 when the secret area is tapped
+              child: Container(
+                width: 50,
+                height: 50,
+                color: Colors.transparent, // Make the container invisible
+              ),
+            ),
+          ),
+          // Secret button at the bottom-left (hidden unless tapped)
+          Positioned(
+            bottom: 20,
+            left: 20,
+            child: GestureDetector(
+              onTap: preventSix, // Prevent rolling a 6 when the secret area is tapped
               child: Container(
                 width: 50,
                 height: 50,

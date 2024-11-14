@@ -25,20 +25,30 @@ class _StudentenPageState extends State<StudentenPage> {
   void initState() {
     super.initState();
     loadQuestions();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (widget.userManager.users.isEmpty) {
+        showAddUsersDialog();
+      }
+    });
   }
 
   Future<void> loadQuestions() async {
-    final String response = await rootBundle.loadString('assets/other/studenten.txt');
+    final String response = await rootBundle.loadString('assets/other/bender.txt');
     setState(() {
-      questions = response.split('\n');
+      questions = response.split('\n').take(101).toList(); // Limit to 101 questions
       questions.shuffle(); // Randomize the order of the questions
+      currentQuestionIndex = 0; // Ensure the first question is displayed
     });
   }
 
   void nextQuestion() {
     if (widget.userManager.users.isNotEmpty) {
       setState(() {
-        currentQuestionIndex = (currentQuestionIndex + 1) % questions.length;
+        if (currentQuestionIndex < questions.length - 1) {
+          currentQuestionIndex++;
+        } else {
+          showEndGameDialog();
+        }
       });
     } else {
       showWarningOnce();
@@ -46,9 +56,11 @@ class _StudentenPageState extends State<StudentenPage> {
   }
 
   void previousQuestion() {
-    setState(() {
-      currentQuestionIndex = (currentQuestionIndex - 1 + questions.length) % questions.length;
-    });
+    if (currentQuestionIndex > 0) {
+      setState(() {
+        currentQuestionIndex--;
+      });
+    }
   }
 
   void showWarningOnce() {
@@ -66,8 +78,102 @@ class _StudentenPageState extends State<StudentenPage> {
     }
   }
 
+  void showAddUsersDialog() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          backgroundColor: Colors.red,
+          title: Text(
+            'Legg til spillere',
+            style: GoogleFonts.anton(
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+              color: Colors.orange,
+              shadows: [
+                Shadow(
+                  offset: Offset(0, 0),
+                  blurRadius: 0,
+                  color: Colors.white,
+                ),
+              ],
+            ),
+            textAlign: TextAlign.center,
+          ),
+          content: Text(
+            'Vennligst legg til spillere før du starter.',
+            style: TextStyle(color: Colors.white, fontSize: 16),
+            textAlign: TextAlign.center,
+          ),
+          actions: <Widget>[
+            TextButton(
+              child: Text(
+                'Legg til',
+                style: TextStyle(color: Colors.orange),
+              ),
+              onPressed: () {
+                Navigator.of(context).pop();
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => AddUsersPage(userManager: widget.userManager),
+                  ),
+                ).then((_) {
+                  setState(() {}); // Refresh the state after returning from AddUsersPage
+                });
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  void showEndGameDialog() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          backgroundColor: Colors.red,
+          title: Text(
+            'Spillet er ferdig',
+            style: GoogleFonts.anton(
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+              color: Colors.orange,
+              shadows: [
+                Shadow(
+                  offset: Offset(0, 0),
+                  blurRadius: 0,
+                  color: Colors.white,
+                ),
+              ],
+            ),
+            textAlign: TextAlign.center,
+          ),
+          content: Text(
+            'Er dere klare for en bender?',
+            style: TextStyle(color: Colors.white, fontSize: 16),
+            textAlign: TextAlign.center,
+          ),
+          actions: <Widget>[
+            TextButton(
+              child: Text(
+                'Ja!',
+                style: TextStyle(color: Colors.orange),
+              ),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   String getQuestionWithUser() {
-    if (widget.userManager.users.isEmpty) {
+    if (widget.userManager.users.isEmpty || questions.isEmpty) {
       return '';
     }
 
@@ -99,7 +205,9 @@ class _StudentenPageState extends State<StudentenPage> {
                 MaterialPageRoute(
                   builder: (context) => AddUsersPage(userManager: widget.userManager),
                 ),
-              );
+              ).then((_) {
+                setState(() {}); // Refresh the state after returning from AddUsersPage
+              });
             },
           ),
         ],
@@ -125,7 +233,7 @@ class _StudentenPageState extends State<StudentenPage> {
                 left: 20,
                 right: 20,
                 child: Text(
-                  'Studenten',
+                  'Bender',
                   style: GoogleFonts.anton(
                     fontSize: 80,
                     fontWeight: FontWeight.bold,
