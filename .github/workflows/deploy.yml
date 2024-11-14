@@ -18,6 +18,11 @@ jobs:
       with:
         flutter-version: '3.0.0'  # Specify your Flutter version
 
+    - name: Install Dart SDK
+      uses: dart-lang/setup-dart@v1
+      with:
+        sdk: '3.5.4'  # Specify the required Dart SDK version
+
     - name: Change to Flutter project directory
       run: cd mer
 
