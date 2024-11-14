@@ -26,7 +26,7 @@ class SporsmalFrontPage extends StatelessWidget {
             Container(
               margin: EdgeInsets.only(bottom: 40), // Space between the text and buttons
               child: Text(
-                'Snusboksen!',
+                'Snusboksen',
                 style: GoogleFonts.anton( // Using Anton font from Google Fonts
                   fontSize: 60, // Larger font size
                   fontWeight: FontWeight.bold,
