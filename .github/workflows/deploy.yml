@@ -40,11 +40,11 @@ jobs:
       working-directory: mer
 
     - name: Deploy to SFTP server
-      uses: burnett01/rsync-deployments@5.1
+      uses: appleboy/scp-action@v0.1.0
       with:
-        switches: -avzr --delete
-        path: "mer/build/web/"
-        remote_path: "/r1330880/to/your/webapp/drikkeleker/"
-        remote_host: ${{ secrets.SFTP_HOST }}
-        remote_user: ${{ secrets.SFTP_USERNAME }}
-        remote_key: ${{ secrets.SFTP_KEY }}  # Add your SSH private key to GitHub secrets
+        host: ${{ secrets.SFTP_HOST }}
+        username: ${{ secrets.SFTP_USERNAME }}
+        password: ${{ secrets.SFTP_PASSWORD }}
+        port: 22  # Default SFTP port
+        source: "mer/build/web/*"
+        target: "/r1330880/to/your/webapp/drikkeleker/"
