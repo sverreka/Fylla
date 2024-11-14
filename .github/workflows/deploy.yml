@@ -46,4 +46,4 @@ jobs:
         username: ${{ secrets.SFTP_USERNAME }}
         password: ${{ secrets.SFTP_PASSWORD }}
         local-dir: "mer/build/web"
-        server-dir: "/r1330880/to/your/webapp/drikkeleker/"
+        server-dir: "/r1330880/drikkeleker/"

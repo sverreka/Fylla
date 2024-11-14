@@ -20,6 +20,7 @@ class _StudentenPageState extends State<StudentenPage> {
   bool showWarning = false;
   bool warningShown = false;
   Random random = Random();
+  List<List<String>> questionUsers = []; // List to store users for each question
 
   @override
   void initState() {
@@ -38,6 +39,7 @@ class _StudentenPageState extends State<StudentenPage> {
       questions = response.split('\n').take(101).toList(); // Limit to 101 questions
       questions.shuffle(); // Randomize the order of the questions
       currentQuestionIndex = 0; // Ensure the first question is displayed
+      questionUsers = List.generate(questions.length, (_) => []); // Initialize the list
     });
   }
 
@@ -105,7 +107,7 @@ class _StudentenPageState extends State<StudentenPage> {
             style: TextStyle(color: Colors.white, fontSize: 16),
             textAlign: TextAlign.center,
           ),
-          actions: <Widget>[
+          actions: [
             TextButton(
               child: Text(
                 'Legg til',
@@ -156,7 +158,7 @@ class _StudentenPageState extends State<StudentenPage> {
             style: TextStyle(color: Colors.white, fontSize: 16),
             textAlign: TextAlign.center,
           ),
-          actions: <Widget>[
+          actions: [
             TextButton(
               child: Text(
                 'Ja!',
@@ -177,13 +179,20 @@ class _StudentenPageState extends State<StudentenPage> {
       return '';
     }
 
-    String question = questions[currentQuestionIndex];
-    String user1 = widget.userManager.users[random.nextInt(widget.userManager.users.length)];
-    String user2 = widget.userManager.users[random.nextInt(widget.userManager.users.length)];
+    if (questionUsers[currentQuestionIndex].isEmpty) {
+      String user1 = widget.userManager.users[random.nextInt(widget.userManager.users.length)];
+      String user2 = widget.userManager.users[random.nextInt(widget.userManager.users.length)];
 
-    while (user1 == user2 && widget.userManager.users.length > 1) {
-      user2 = widget.userManager.users[random.nextInt(widget.userManager.users.length)];
+      while (user1 == user2 && widget.userManager.users.length > 1) {
+        user2 = widget.userManager.users[random.nextInt(widget.userManager.users.length)];
+      }
+
+      questionUsers[currentQuestionIndex] = [user1, user2];
     }
+
+    String question = questions[currentQuestionIndex];
+    String user1 = questionUsers[currentQuestionIndex][0];
+    String user2 = questionUsers[currentQuestionIndex][1];
 
     return question
         .replaceAll('{user1}', user1)
