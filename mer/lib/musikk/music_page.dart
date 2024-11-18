@@ -26,7 +26,8 @@ class MusicPage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Musikk'),
         backgroundColor: Colors.transparent, // Transparent app bar to show the red background
-        elevation: 0, // Remove shadow for app bar
+        elevation: 0,
+        scrolledUnderElevation: 0, // Remove shadow for app bar
         centerTitle: true, // Center the title
       ),
       

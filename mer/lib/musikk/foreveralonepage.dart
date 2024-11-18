@@ -39,7 +39,8 @@ class _ForeverAlonePageState extends State<ForeverAlonePage> {
       appBar: AppBar(
         title: Text('Forever Alone'),
         backgroundColor: Colors.transparent, // Transparent app bar
-        elevation: 0, // Remove shadow for app bar
+        elevation: 0,
+        scrolledUnderElevation: 0, // Remove shadow for app bar
         centerTitle: true, // Center the title
       ),
       body: Container(

@@ -39,7 +39,8 @@ class _SexOnFirePageState extends State<SexOnFirePage> {
       appBar: AppBar(
         title: Text('Sex On Fire'),
         backgroundColor: Colors.transparent, // Transparent app bar
-        elevation: 0, // Remove shadow for app bar
+        elevation: 0,
+        scrolledUnderElevation: 0, // Remove shadow for app bar
         centerTitle: true, // Center the title
       ),
       body: Container(

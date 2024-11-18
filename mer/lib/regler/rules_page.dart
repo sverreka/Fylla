@@ -9,6 +9,13 @@ class RulesPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.red, // Red background for the page
+      appBar: AppBar(
+        backgroundColor: Colors.red, // Set AppBar background color to match the page
+        elevation: 0, // Remove shadow for AppBar
+        scrolledUnderElevation: 0, // Remove elevation when scrolled under
+        title: Text(''),
+        centerTitle: true, // Center the title
+      ),
       body: SafeArea(
         child: FutureBuilder(
           future: _getRulesFiles(),
