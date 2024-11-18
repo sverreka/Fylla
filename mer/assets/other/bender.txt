@@ -47,7 +47,7 @@ Konkurranse! Alle sammen finn fram mobilen og vipps et beløp til 2277 (kreftfor
 {user1} gi {user2} et kompliment, ellers må du drikke 3 slurker.
 Alle som har Tinder på mobilen må ta 2 slurker.
 Kategorien er bilmerker. {user1} starter.
-{user1}, fortell din pinligste fyllehistorie, eller drikk 5 slurker.', requiresUsers: true
+{user1}, fortell din pinligste fyllehistorie, eller drikk 5 slurker.
 Alle som har tatt solarium i det siste må drikke 3 slurker.
 Jeg har aldri blitt tatt av politiet.
 {user1} og {user2}, ha en armheving konkurranse. Taperen drikker 5 slurker.
