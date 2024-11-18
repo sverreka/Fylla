@@ -32,7 +32,7 @@ class FrontPage extends StatelessWidget {
               Container(
                 margin: EdgeInsets.only(bottom: 40), // Space between the text and buttons
                 child: Text(
-                  'Fylla',
+                  'Fylla!',
                   style: GoogleFonts.anton( // Using Anton font from Google Fonts
                     fontSize: 80, // Larger font size
                     fontWeight: FontWeight.bold,
