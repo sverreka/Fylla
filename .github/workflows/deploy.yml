@@ -39,11 +39,9 @@ jobs:
       run: flutter build web
       working-directory: mer
 
-    - name: Deploy to FTP server
+    - name: FTP Deploy
       uses: SamKirkland/FTP-Deploy-Action@4.3.0
       with:
-        server: ${{ secrets.FTP_SERVER }}
+        server: ftp://ftp.dritafull.no:21
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: "mer/build/web/"
-        server-dir: "/public_html/"
