@@ -108,18 +108,14 @@ class _FrontPageState extends State<FrontPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.red, // Set background color to red
-      appBar: AppBar(
-        backgroundColor: Colors.transparent, // Set app bar to transparent to show the red background
-        elevation: 0, // Remove the app bar shadow
-      ),
-      body: SingleChildScrollView(
-        child: Container(
-          padding: EdgeInsets.symmetric(vertical: 20), // Add padding to avoid overflow
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
+  return Scaffold(
+    backgroundColor: Colors.red, // Set background color to red
+    body: SingleChildScrollView(
+      child: Container(
+        padding: EdgeInsets.symmetric(vertical: 20), // Add padding to avoid overflow
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
               // Big orange text with solid white outline above the buttons
               GestureDetector(
                 onTap: _handleTap,

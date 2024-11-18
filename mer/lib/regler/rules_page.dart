@@ -9,12 +9,6 @@ class RulesPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.red, // Red background for the page
-      appBar: AppBar(
-        title: Text(''),
-        backgroundColor: Colors.transparent, // Transparent app bar to show the red background
-        elevation: 0, // Remove shadow for app bar
-        centerTitle: true, // Center the title
-      ),
       body: SafeArea(
         child: FutureBuilder(
           future: _getRulesFiles(),
@@ -24,7 +18,7 @@ class RulesPage extends StatelessWidget {
             } else if (snapshot.hasError) {
               return Center(child: Text('Error: ${snapshot.error}'));
             } else {
-              final files = snapshot.data as List<String>;
+              final files = snapshot.data as List;
               return Center(
                 child: ScrollConfiguration(
                   behavior: ScrollBehavior().copyWith(overscroll: false, scrollbars: false),
