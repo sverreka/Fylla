@@ -39,12 +39,11 @@ jobs:
       run: flutter build web
       working-directory: mer
 
-    - name: Deploy to SSH server
-      uses: appleboy/scp-action@v0.1.0
+    - name: Deploy to FTP server
+      uses: SamKirkland/FTP-Deploy-Action@4.3.0
       with:
-        host: ${{ secrets.SSH_HOST }}
-        username: ${{ secrets.SSH_USERNAME }}
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
-        port: ${{ secrets.SSH_PORT }}
-        source: "mer/build/web/*"  # Use wildcard to include all files and directories inside 'web'
-        target: "/webroots/r1330880/"
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        local-dir: "mer/build/web"
+        server-dir: "/public_html/"
