@@ -25,10 +25,9 @@ flutter:
   # Declare the assets section to include the dice images
   assets:
     - assets/images/
-    - assets/other/bender.txt
-    - assets/other/101sporsmal.txt
-    - assets/other/69sporsmal.txt
     - assets/sanger/foreveralone.txt
     - assets/sanger/
     - assets/regler/
     - assets/other/
+    - assets/snusboksen/
+    - assets/bender/

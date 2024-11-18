@@ -34,7 +34,7 @@ class _StudentenPageState extends State<StudentenPage> {
   }
 
   Future<void> loadQuestions() async {
-    final String response = await rootBundle.loadString('assets/other/bender.txt');
+    final String response = await rootBundle.loadString('assets/bender/bender.txt');
     setState(() {
       questions = response.split('\n').take(101).toList(); // Limit to 101 questions
       questions.shuffle(); // Randomize the order of the questions

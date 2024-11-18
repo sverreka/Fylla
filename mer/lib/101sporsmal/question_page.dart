@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../user_manager/user_manager.dart'; 
+import '../user_manager/user_manager.dart';
 import '../user_manager/add_users_page.dart';
 import 'dart:math';
 import 'dart:async';
@@ -9,8 +9,9 @@ import 'package:google_fonts/google_fonts.dart';
 
 class QuestionPage extends StatefulWidget {
   final UserManager userManager;
+  final String filePath;
 
-  QuestionPage({required this.userManager});
+  QuestionPage({required this.userManager, required this.filePath});
 
   @override
   _QuestionPageState createState() => _QuestionPageState();
@@ -20,21 +21,20 @@ class _QuestionPageState extends State<QuestionPage> {
   List<String> questions = [];
   int currentQuestionIndex = 0;
   Random random = Random();
+  late String fileName;
 
   @override
   void initState() {
     super.initState();
     loadQuestions();
+    fileName = widget.filePath.split('/').last.split('.').first;
   }
 
   Future<void> loadQuestions() async {
-    final String response = await rootBundle.loadString('assets/other/101sporsmal.txt');
+    final String response = await rootBundle.loadString(widget.filePath);
     setState(() {
       questions = LineSplitter().convert(response);
       questions.shuffle();
-      if (questions.length > 101) {
-        questions = questions.sublist(0, 101);  // Limit to the first 101 questions
-      }
     });
   }
 
@@ -79,7 +79,7 @@ class _QuestionPageState extends State<QuestionPage> {
               child: Padding(
                 padding: const EdgeInsets.only(top: 40.0),
                 child: Text(
-                  '101 Spørsmål',
+                  fileName,
                   style: GoogleFonts.anton(
                     fontSize: 80,
                     fontWeight: FontWeight.bold,

@@ -1,110 +1,116 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart'; // Import google_fonts package
-import '../user_manager/user_manager.dart'; 
-import '../101sporsmal/question_page.dart';
-import '../101sporsmal/69_sporsmal.dart'; 
+import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter/services.dart' show rootBundle;
+import 'dart:convert';
+import 'dart:async';
+import '../user_manager/user_manager.dart';
+import 'question_page.dart';
 
-
-class SporsmalFrontPage extends StatelessWidget {
+class SporsmalFrontPage extends StatefulWidget {
   final UserManager userManager;
 
   SporsmalFrontPage({required this.userManager});
 
   @override
+  _SporsmalFrontPageState createState() => _SporsmalFrontPageState();
+}
+
+class _SporsmalFrontPageState extends State<SporsmalFrontPage> {
+  List<String> files = [];
+
+  @override
+  void initState() {
+    super.initState();
+    loadFiles();
+  }
+
+  Future<void> loadFiles() async {
+    final manifestContent = await rootBundle.loadString('AssetManifest.json');
+    final Map<String, dynamic> manifestMap = json.decode(manifestContent);
+    final assetPaths = manifestMap.keys
+        .where((String key) => key.startsWith('assets/snusboksen/') && key.endsWith('.txt'))
+        .toList();
+
+    setState(() {
+      files = assetPaths;
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.red, // Set background color to red
+      backgroundColor: Colors.red,
       appBar: AppBar(
-        backgroundColor: Colors.transparent, // Set app bar to transparent to show the red background
-        elevation: 0, // Remove the app bar shadow
+        backgroundColor: Colors.transparent,
+        elevation: 0,
       ),
-      body: Container(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            // Big orange text with solid white outline above the buttons
-            Container(
-              margin: EdgeInsets.only(bottom: 40), // Space between the text and buttons
-              child: Text(
-                'Snusboksen',
-                style: GoogleFonts.anton( // Using Anton font from Google Fonts
-                  fontSize: 60, // Larger font size
-                  fontWeight: FontWeight.bold,
-                  color: Colors.orange, // Text color orange
-                  shadows: [
-                    Shadow(
-                      offset: Offset(0, 0), // No offset for solid outline
-                      blurRadius: 0, // No blur for solid outline
-                      color: Colors.white, // Solid white outline
+      body: Center(
+        child: ScrollConfiguration(
+          behavior: ScrollBehavior().copyWith(overscroll: false, scrollbars: false),
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  margin: EdgeInsets.only(bottom: 40),
+                  child: Text(
+                    'Snusboksen',
+                    style: GoogleFonts.anton(
+                      fontSize: 60,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.orange,
+                      shadows: [
+                        Shadow(
+                          offset: Offset(0, 0),
+                          blurRadius: 0,
+                          color: Colors.white,
+                        ),
+                      ],
                     ),
-                  ],
-                ),
-              ),
-            ),
-
-            // Button for 101 Questions game
-            Center(
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.orange, // Button background color
-                  foregroundColor: Colors.white, // Button text color
-                  padding: EdgeInsets.symmetric(vertical: 15, horizontal: 30), // Button padding
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12), // Rounded corners for the button
-                  ),
-                  minimumSize: Size(200, 50), // Fixed size for all buttons
-                ),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => QuestionPage(userManager: userManager),
-                    ),
-                  );
-                },
-                child: Text(
-                  '101 Spørsmål',
-                  style: TextStyle(
-                    fontSize: 18, // Larger text for the button
-                    fontWeight: FontWeight.bold, // Bold text
                   ),
                 ),
-              ),
-            ),
-            SizedBox(height: 20),
-
-
-            Center(
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.orange, // Button background color
-                  foregroundColor: Colors.white, // Button text color
-                  padding: EdgeInsets.symmetric(vertical: 15, horizontal: 30), // Button padding
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12), // Rounded corners for the button
-                  ),
-                  minimumSize: Size(200, 50), // Fixed size for all buttons
-                ),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => DirtyPage(userManager: userManager),
+                ...files.map((file) {
+                  final fileName = file.split('/').last.split('.').first;
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 10.0),
+                    child: Center(
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.orange,
+                          foregroundColor: Colors.white, // Button text color
+                          padding: EdgeInsets.symmetric(vertical: 15, horizontal: 30), // Button padding
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12), // Rounded corners for the button
+                            side: BorderSide(color: Colors.white, width: 2), // White outline
+                          ),
+                          minimumSize: Size(300, 100), // Fixed size for all buttons
+                        ),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => QuestionPage(
+                                userManager: widget.userManager,
+                                filePath: file,
+                              ),
+                            ),
+                          );
+                        },
+                        child: Text(
+                          fileName,
+                          style: GoogleFonts.anton( // Using Anton font from Google Fonts
+                            fontSize: 30, // Larger font size
+                            fontWeight: FontWeight.bold,
+                            color: Colors.red, // Text color red
+                          ),
+                        ),
+                      ),
                     ),
                   );
-                },
-                child: Text(
-                  '69 Spørsmål',
-                  style: TextStyle(
-                    fontSize: 18, // Larger text for the button
-                    fontWeight: FontWeight.bold, // Bold text
-                  ),
-                ),
-              ),
+                }).toList(),
+              ],
             ),
-            SizedBox(height: 20),
-            
-          ],
+          ),
         ),
       ),
     );

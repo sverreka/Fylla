@@ -3,6 +3,10 @@ import 'dart:math';
 import 'package:url_launcher/url_launcher.dart';  // Import url_launcher package
 
 class DicePage extends StatefulWidget {
+  final bool specialFeaturesUnlocked;
+
+  DicePage({required this.specialFeaturesUnlocked});
+
   @override
   _DicePageState createState() => _DicePageState();
 }
@@ -11,7 +15,7 @@ class _DicePageState extends State<DicePage> with SingleTickerProviderStateMixin
   late AnimationController _controller;
   late Animation _rotation;
 
-  final List diceImages = [
+  final List<String> diceImages = [
     'assets/images/dice_1.png',
     'assets/images/dice_2.png',
     'assets/images/dice_3.png',
@@ -167,32 +171,34 @@ class _DicePageState extends State<DicePage> with SingleTickerProviderStateMixin
               ],
             ),
           ),
-          // Secret button at the bottom-right (hidden unless tapped)
-          Positioned(
-            bottom: 20,
-            right: 20,
-            child: GestureDetector(
-              onTap: rollSix, // Set the next roll to be 6 when the secret area is tapped
-              child: Container(
-                width: 50,
-                height: 50,
-                color: Colors.transparent, // Make the container invisible
+          if (widget.specialFeaturesUnlocked) ...[
+            // Secret button at the bottom-right (hidden unless tapped)
+            Positioned(
+              bottom: 20,
+              right: 20,
+              child: GestureDetector(
+                onTap: rollSix, // Set the next roll to be 6 when the secret area is tapped
+                child: Container(
+                  width: 50,
+                  height: 50,
+                  color: Colors.transparent, // Make the container invisible
+                ),
               ),
             ),
-          ),
-          // Secret button at the bottom-left (hidden unless tapped)
-          Positioned(
-            bottom: 20,
-            left: 20,
-            child: GestureDetector(
-              onTap: preventSix, // Prevent rolling a 6 when the secret area is tapped
-              child: Container(
-                width: 50,
-                height: 50,
-                color: Colors.transparent, // Make the container invisible
+            // Secret button at the bottom-left (hidden unless tapped)
+            Positioned(
+              bottom: 20,
+              left: 20,
+              child: GestureDetector(
+                onTap: preventSix, // Prevent rolling a 6 when the secret area is tapped
+                child: Container(
+                  width: 50,
+                  height: 50,
+                  color: Colors.transparent, // Make the container invisible
+                ),
               ),
             ),
-          ),
+          ],
         ],
       ),
     );
