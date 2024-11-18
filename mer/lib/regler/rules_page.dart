@@ -10,7 +10,7 @@ class RulesPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.red, // Red background for the page
       appBar: AppBar(
-        title: Text('Regler'),
+        title: Text(''),
         backgroundColor: Colors.transparent, // Transparent app bar to show the red background
         elevation: 0, // Remove shadow for app bar
         centerTitle: true, // Center the title
