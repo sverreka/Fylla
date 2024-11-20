@@ -13,6 +13,8 @@ dependencies:
     sdk: flutter
   url_launcher: ^6.0.12
   google_fonts: ^6.2.1
+  image_picker: ^0.8.4+4
+  simple_animations: ^4.0.0
   # Add other dependencies here
 
 dev_dependencies:

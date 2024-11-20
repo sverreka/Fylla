@@ -7,6 +7,7 @@ import '../terning/dice_game_page.dart';
 import '../musikk/music_page.dart'; 
 import '../regler/rules_page.dart'; 
 import '../kategorier/kategorier.dart'; 
+import '../roulette/roulette.dart'; 
 
 class FrontPage extends StatefulWidget {
   final UserManager userManager;
@@ -199,6 +200,7 @@ class _FrontPageState extends State<FrontPage> {
                 ),
               ),
               SizedBox(height: 20),
+              
               // Button to open Dice Game page
               Center(
                 child: ElevatedButton(

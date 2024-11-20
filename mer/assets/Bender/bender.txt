@@ -112,4 +112,16 @@ Kategorien er ferieland. {user1} starter.
 Den som har flest år på høyere utdanning må drikke 2 slurker.
 {user1} fortell om det flaueste som har hendt under samleie eller drikk 5 slurker
 {user1} fortell om et flaut barndomsminne som har brent seg fast i hjernen din eller drikk 5 slurker.
-    
+Regel! {user1} lag en regel som varer resten av spillet!
+Regel! {user1} lag en regel som varer resten av spillet!
+Regel! {user1} lag en regel som varer resten av spillet!
+Regel! {user1} lag en regel som varer resten av spillet!
+Tommel opp eller ned! Å bli sparket i ballene er værre enn å føde.
+Tommel opp eller ned! Lønn er viktigere enn trivsel.
+Tommel opp eller ned! Hund er bedre enn katt.
+Tommel opp eller ned! {user1} bør få seg noe på byen ikveld.
+Tommel opp eller ned! {user1} bør drikke mer.
+Forsett på sangen! We like to drink with {user1}, because {user1} is our mate......
+Forsett på sangen! We like to drink with {user1}, because {user1} is our mate......
+Forsett på sangen! We like to drink with {user1}, because {user1} is our mate......
+Forsett på sangen! We like to drink with {user1}, because {user1} is our mate......
