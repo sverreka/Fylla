@@ -108,9 +108,11 @@ class _DicePageState extends State<DicePage> with SingleTickerProviderStateMixin
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.red, // Set the background color to red
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(120), // Adjust the height of the AppBar
         child: AppBar(
+          backgroundColor: Colors.red, // Set the AppBar background color to red
           title: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
