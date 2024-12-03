@@ -36,7 +36,7 @@ jobs:
       working-directory: mer
 
     - name: Build Flutter web
-      run: flutter build web
+      run: flutter build web --release
       working-directory: mer
 
     - name: FTP Deploy
