@@ -1,0 +1,9 @@
+{
+  "name": "connectU",
+  "short_name": "connectU",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#F7ECE8",
+  "theme_color": "#C8603A",
+  "description": "Find your perfect roommate match"
+}
